@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Rotation Orientation Mapping Game</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2cace3;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Cube container */
+  .cube-container {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+  }
+
+  /* Cube style */
+  .cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    perspective: 600px;
+  }
+
+  /* Rotating animation for the target cube */
+  .rotating {
+    animation: rotateCube 10s infinite linear;
+  }
+
+  /* Define rotation animation */
+  @keyframes rotateCube {
+    from {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+  }
+
+  /* Cube faces */
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    border: 1px solid black;
+    backface-visibility: hidden;
+    cursor: pointer;
+  }
+
+  /* Position cube faces */
+  .front  { transform: translateZ(50px); }
+  .back   { transform: rotateY(180deg) translateZ(50px); }
+  .left   { transform: rotateY(-90deg) translateZ(50px); }
+  .right  { transform: rotateY(90deg) translateZ(50px); }
+  .top    { transform: rotateX(90deg) translateZ(50px); }
+  .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+  /* Score and timer */
+  #score, #timer {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  /* Controls */
+  .controls {
+    margin-top: 20px;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mental Rotation Orientation Mapping Game</h1>
+
+<div id="instructions">
+  <p>Rotate and color-match the **Player Cube** to match the **Target Cube** exactly!</p>
+</div>
+
+<!-- Cube containers -->
+<div class="cube-container">
+  <div id="target-cube-container">
+    <h3>Target Cube (Rotating)</h3>
+    <div class="cube rotating" id="target-cube"></div>
+  </div>
+  <div id="player-cube-container">
+    <h3>Player Cube</h3>
+    <div class="cube" id="player-cube"></div>
+  </div>
+</div>
+
+<div id="score">Score: 0</div>
+<div id="timer">Time Left: 60s</div>
+
+<!-- Rotation controls -->
+<div class="controls">
+  <h3>Rotate Player Cube</h3>
+  <button onclick="rotateCube(playerCube, 'X', 90)">Rotate X</button>
+  <button onclick="rotateCube(playerCube, 'Y', 90)">Rotate Y</button>
+  <button onclick="rotateCube(playerCube, 'Z', 90)">Rotate Z</button>
+</div>
+
+<!-- Submit button -->
+<button id="submit-button" onclick="submitColors()">Submit</button>
+
+<script>
+  // Define colors and target cube configuration
+  const colors = ["red", "green", "blue", "yellow", "purple", "orange"];
+  const targetConfig = {
+    front: "red",
+    back: "blue",
+    left: "yellow",
+    right: "purple",
+    top: "green",
+    bottom: "orange"
+  };
+
+  let score = 0;
+  let timer = 60; // Time in seconds
+
+  // Create cubes dynamically
+  function createCube(containerId, isTarget = false) {
+    const cubeContainer = document.getElementById(containerId);
+    const cube = cubeContainer.querySelector('.cube');
+    ["front", "back", "left", "right", "top", "bottom"].forEach(faceName => {
+      const face = document.createElement("div");
+      face.classList.add("face", faceName);
+      face.textContent = faceName;
+
+      // Set target cube colors
+      if (isTarget) {
+        face.style.backgroundColor = targetConfig[faceName];
+      } else {
+        face.style.backgroundColor = "grey";
+        face.onclick = () => changeColor(face);
+      }
+
+      cube.appendChild(face);
+    });
+    return cube;
+  }
+
+  // Initialize cubes
+  const targetCube = createCube("target-cube-container", true);
+  const playerCube = createCube("player-cube-container");
+
+  // Rotate a cube on a given axis
+  function rotateCube(cube, axis, degrees) {
+    const currentTransform = cube.style.transform || '';
+    cube.style.transform = `${currentTransform} rotate${axis}(${degrees}deg)`;
+  }
+
+  // Change the color of a cube face
+  function changeColor(face) {
+    const currentColor = face.style.backgroundColor;
+    const nextColor = colors[(colors.indexOf(currentColor) + 1) % colors.length];
+    face.style.backgroundColor = nextColor;
+  }
+
+  // Check player's cube against target cube
+  function submitColors() {
+    let resultMessage = '';
+    score = 0; // Reset score
+
+    // Compare each face
+    ["front", "back", "left", "right", "top", "bottom"].forEach(faceName => {
+      const targetFace = targetCube.querySelector(`.face.${faceName}`);
+      const playerFace = playerCube.querySelector(`.face.${faceName}`);
+
+      if (playerFace.style.backgroundColor === targetFace.style.backgroundColor) {
+        score += 10;
+        resultMessage += `${faceName}: Matched! +10 points.\n`;
+      } else {
+        score -= 5;
+        resultMessage += `${faceName}: Did not match. -5 points.\n`;
+      }
+    });
+
+    // Update score and alert results
+    document.getElementById("score").textContent = `Score: ${score}`;
+    alert(resultMessage);
+  }
+
+  // Timer functionality
+  function startTimer() {
+    const timerElement = document.getElementById("timer");
+    const interval = setInterval(() => {
+      if (timer > 0) {
+        timer--;
+        timerElement.textContent = `Time Left: ${timer}s`;
+      } else {
+        clearInterval(interval);
+        alert("Time's up! Final Score: " + score);
+      }
+    }, 1000);
+  }
+
+  // Start the game timer
+  startTimer();
+</script>
+
+</body>
+</html>
