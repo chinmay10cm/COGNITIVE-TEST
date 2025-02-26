@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test of Pragmatic Language (TOPL)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Test of Pragmatic Language (TOPL)</h1>
+
+        <div id="user-info">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age" required><br>
+
+            <button id="start-info-btn">Next</button>
+        </div>
+
+        <div id="instructions" class="hidden">
+            <p>The Test of Pragmatic Language (TOPL) is designed to assess a child’s ability to use language effectively in social contexts. The test involves a series of scenarios where the child must respond appropriately based on their understanding of social cues, rules, and expectations.</p>
+            <p><strong>Example:</strong><br>You are at a friend’s birthday party. Everyone is sitting at the table, waiting to eat the cake. What should you do?</p>
+            <p><strong>Possible Answer:</strong><br>Wait quietly until it’s your turn to get a piece of cake.</p>
+            <button id="start-test-btn">Start Test</button>
+        </div>
+
+        <div id="test-phase" class="hidden">
+            <div id="question-container"></div>
+            <button id="next-question-btn">Next</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Result</h2>
+            <p id="final-score"></p>
+            <div id="answers-container"></div>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

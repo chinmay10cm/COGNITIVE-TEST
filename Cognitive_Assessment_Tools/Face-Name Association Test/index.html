@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face-Name Association Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face-Name Association Test</h1>
+        <div id="user-info">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age" required><br>
+
+            <button id="start-info-btn">Next</button>
+        </div>
+
+        <div id="instructions" class="hidden">
+            <p>In this test, you will be shown pictures of 5 people, each with their name. After viewing all the images, you will be shown the pictures again without names and asked to recall the associated name.</p>
+            <button id="start-test-btn">Start Test</button>
+        </div>
+
+        <div id="test-phase" class="hidden">
+            <p id="prompt"></p>
+            <img id="face-image" src="" alt="Face" class="face-image">
+            <p id="name-display" class="name-display"></p>
+        </div>
+
+        <div id="recall-phase" class="hidden">
+            <p id="recall-prompt"></p>
+            <img id="recall-image" src="" alt="Face" class="face-image">
+            <input type="text" id="recall-name" placeholder="Enter the name associated with this face">
+            <button id="submit-recall-btn">Submit Answer</button>
+            <p id="feedback"></p>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Result</h2>
+            <p id="final-feedback"></p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

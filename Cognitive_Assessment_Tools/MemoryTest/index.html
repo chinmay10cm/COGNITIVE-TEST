@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Memory Game</h1>
+        <div id="user-info">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age" required><br>
+
+            <button id="start-btn">Start Game</button>
+        </div>
+
+        <div id="instructions" class="hidden">
+            <h2>Instructions</h2>
+            <p>You will be shown an image for 15 seconds. Try to remember as many items as you can.</p>
+            <button id="start-memory-btn">Start Memory Test</button>
+        </div>
+
+        <div id="memory-test" class="hidden">
+            <img id="memory-image" src="" alt="Memory Image" class="memory-img">
+        </div>
+
+        <div id="recall" class="hidden">
+            <p>Enter the items you remember (separated by commas):</p>
+            <textarea id="recall-input" rows="5" cols="50"></textarea><br>
+            <button id="submit-recall-btn">Submit</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Score</h2>
+            <p id="score"></p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Spectrum Screening Questionnaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="start-container" id="startContainer">
+        <h1>Autism Spectrum Screening Questionnaire</h1>
+        <button class="start-button" onclick="startAssessment()">Start</button>
+    </div>
+    <div class="container" id="questionnaireContainer">
+        <h1>Autism Spectrum Screening Questionnaire</h1>
+        <p>This test can help you determine if your child or student is experiencing symptoms of autism spectrum disorder. This is not a diagnostic test. Please consult a physician if you are concerned about autism spectrum disorder.</p>
+        <form id="questionnaireForm">
+            <div class="question">
+                <label>1. Is old-fashioned or precocious</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="1">No</button>
+                    <button type="button" data-value="1" data-question="1">Somewhat</button>
+                    <button type="button" data-value="2" data-question="1">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>2. Is regarded as an "eccentric professor" by the other children</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="2">No</button>
+                    <button type="button" data-value="1" data-question="2">Somewhat</button>
+                    <button type="button" data-value="2" data-question="2">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>3. Lives somewhat in a world of his/her own with restricted idiosyncratic intellectual interests</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="3">No</button>
+                    <button type="button" data-value="1" data-question="3">Somewhat</button>
+                    <button type="button" data-value="2" data-question="3">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>4. Accumulates facts on certain subjects (good rote memory) but does not really understand the meaning</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="4">No</button>
+                    <button type="button" data-value="1" data-question="4">Somewhat</button>
+                    <button type="button" data-value="2" data-question="4">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>5. Has a literal understanding of ambiguous and metaphorical language</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="5">No</button>
+                    <button type="button" data-value="1" data-question="5">Somewhat</button>
+                    <button type="button" data-value="2" data-question="5">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>6. Has a deviant style of communication with a formal, fussy, old-fashioned or "robot like" language</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="6">No</button>
+                    <button type="button" data-value="1" data-question="6">Somewhat</button>
+                    <button type="button" data-value="2" data-question="6">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>7. Invents idiosyncratic words and expressions</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="7">No</button>
+                    <button type="button" data-value="1" data-question="7">Somewhat</button>
+                    <button type="button" data-value="2" data-question="7">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>8. Has a different voice or speech</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="8">No</button>
+                    <button type="button" data-value="1" data-question="8">Somewhat</button>
+                    <button type="button" data-value="2" data-question="8">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>9. Expresses sounds involuntarily; clears throat, grunts, smacks, cries or screams</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="9">No</button>
+                    <button type="button" data-value="1" data-question="9">Somewhat</button>
+                    <button type="button" data-value="2" data-question="9">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>10. Is surprisingly good at some things and surprisingly poor at others</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="10">No</button>
+                    <button type="button" data-value="1" data-question="10">Somewhat</button>
+                    <button type="button" data-value="2" data-question="10">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>11. Uses language freely but fails to make adjustment to fit social contexts or the needs of different listeners</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="11">No</button>
+                    <button type="button" data-value="1" data-question="11">Somewhat</button>
+                    <button type="button" data-value="2" data-question="11">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>12. Lacks empathy</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="12">No</button>
+                    <button type="button" data-value="1" data-question="12">Somewhat</button>
+                    <button type="button" data-value="2" data-question="12">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>13. Makes naive and embarrassing remarks</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="13">No</button>
+                    <button type="button" data-value="1" data-question="13">Somewhat</button>
+                    <button type="button" data-value="2" data-question="13">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>14. Has a deviant style of gaze</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="14">No</button>
+                    <button type="button" data-value="1" data-question="14">Somewhat</button>
+                    <button type="button" data-value="2" data-question="14">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>15. Wishes to be sociable but fails to make relationships with peers</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="15">No</button>
+                    <button type="button" data-value="1" data-question="15">Somewhat</button>
+                    <button type="button" data-value="2" data-question="15">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>16. Can be with other children but only on his/her terms</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="16">No</button>
+                    <button type="button" data-value="1" data-question="16">Somewhat</button>
+                    <button type="button" data-value="2" data-question="16">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>17. Lacks best friend</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="17">No</button>
+                    <button type="button" data-value="1" data-question="17">Somewhat</button>
+                    <button type="button" data-value="2" data-question="17">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>18. Lacks common sense</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="18">No</button>
+                    <button type="button" data-value="1" data-question="18">Somewhat</button>
+                    <button type="button" data-value="2" data-question="18">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>19. Is poor at games: no idea of cooperating in a team, scores "own goals"</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="19">No</button>
+                    <button type="button" data-value="1" data-question="19">Somewhat</button>
+                    <button type="button" data-value="2" data-question="19">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>20. Has clumsy, ill-coordinated, ungainly, awkward movements or gestures</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="20">No</button>
+                    <button type="button" data-value="1" data-question="20">Somewhat</button>
+                    <button type="button" data-value="2" data-question="20">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>21. Has involuntary face or body movements</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="21">No</button>
+                    <button type="button" data-value="1" data-question="21">Somewhat</button>
+                    <button type="button" data-value="2" data-question="21">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>22. Has difficulties in completing simple daily activities because of compulsory repetition of certain actions or thoughts</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="22">No</button>
+                    <button type="button" data-value="1" data-question="22">Somewhat</button>
+                    <button type="button" data-value="2" data-question="22">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>23. Has special routines: insists on no change</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="23">No</button>
+                    <button type="button" data-value="1" data-question="23">Somewhat</button>
+                    <button type="button" data-value="2" data-question="23">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>24. Shows idiosyncratic attachment to objects</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="24">No</button>
+                    <button type="button" data-value="1" data-question="24">Somewhat</button>
+                    <button type="button" data-value="2" data-question="24">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>25. Is bullied by other children</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="25">No</button>
+                    <button type="button" data-value="1" data-question="25">Somewhat</button>
+                    <button type="button" data-value="2" data-question="25">Yes</button>
+                </div>
+            </div>
+            <div class="question">
+                <label>26. Has markedly unusual facial expression</label>
+                <div class="options">
+                    <button type="button" data-value="0" data-question="26">No</button>
+                    <button type="button" data-value="1" data-question="26">Somewhat</button>
+                    <button type="button" data-value="2" data-question="26">Yes</button>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+    <div class="container" id="resultContainer">
+        <h1>Your Test Results</h1>
+        <div id="currentResult" class="result"></div>
+        <h2>Previous Test Results</h2>
+        <div id="previousResults"></div>
+        <div class="retake-container">
+            <h2>Do you want to retake the test?</h2>
+            <button onclick="retakeTest()">Retake</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

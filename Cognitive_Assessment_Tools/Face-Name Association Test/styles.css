@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('backgroundimage.png') no-repeat center center fixed; /* Replace 'background-image.jpg' with the path to your image */
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background to make the content stand out */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.face-image {
+    width: 200px;
+    height: 200px;
+    margin: 15px 0;
+}
+
+#feedback, #final-feedback {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.name-display {
+    font-size: 20px;
+    font-weight: bold;
+}
